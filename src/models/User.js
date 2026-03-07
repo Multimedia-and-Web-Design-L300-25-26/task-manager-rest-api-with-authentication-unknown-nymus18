@@ -11,8 +11,22 @@ import mongoose from "mongoose";
 
 
 const userSchema = new mongoose.Schema({
-  // Students implement
-});
+  name:{
+    type:String,
+    required:[true,"Please provide a name"],
+    trim:true
+  }
+  ,email:{
+    type:String,
+    required:[true,"Please provide an email"],
+    trim:true
+  },
+  password:{
+    type:String,
+    required:[true,"Please provide a password"],
+    minLength:6
+  }
+},{timestamps:true});
 
 const User = mongoose.model("User", userSchema);
 
